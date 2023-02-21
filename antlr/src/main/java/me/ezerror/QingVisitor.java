@@ -17,6 +17,18 @@ public interface QingVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitCompilationUnit(QingParser.CompilationUnitContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link QingParser#classDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitClassDeclaration(QingParser.ClassDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link QingParser#classBody}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitClassBody(QingParser.ClassBodyContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link QingParser#variable}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -34,4 +46,10 @@ public interface QingVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitValue(QingParser.ValueContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link QingParser#className}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitClassName(QingParser.ClassNameContext ctx);
 }

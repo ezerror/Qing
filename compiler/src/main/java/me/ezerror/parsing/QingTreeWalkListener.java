@@ -1,11 +1,13 @@
 package me.ezerror.parsing;
 
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import me.ezerror.QingBaseListener;
 import me.ezerror.QingParser;
 import me.ezerror.bytecode.instructions.Instruction;
 import me.ezerror.bytecode.instructions.PrintVariableInstruction;
 import me.ezerror.bytecode.instructions.VariableDeclarationInstruction;
+import me.ezerror.declaration.ClassDeclaration;
 import me.ezerror.domain.Variable;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
@@ -21,7 +23,11 @@ import java.util.Queue;
  * @version:
  */
 @Slf4j
+@Getter
 public class QingTreeWalkListener extends QingBaseListener {
+  
+  private ClassDeclaration classDeclaration;
+  
   /**
    * 定义上下文中的变量名
    */
@@ -59,8 +65,14 @@ public class QingTreeWalkListener extends QingBaseListener {
     log.info("你要打印一个变量,变量名为{},实际值为{}", varName.getText(), variableMap.get(varName.getText()));
   }
 
-  public Queue<Instruction> getInstructionsQueue() {
-    return instructionsQueue;
+
+  @Override
+  public void exitClassDeclaration(QingParser.ClassDeclarationContext ctx) {
+    super.exitClassDeclaration(ctx);
+    String className = ctx.className().getText();
+    classDeclaration= new ClassDeclaration(className);
+    classDeclaration.setInstructionsQueue(instructionsQueue);
   }
+  
 }
 
