@@ -3,10 +3,9 @@ package me.ezerror.parsing;
 import me.ezerror.QingLexer;
 import me.ezerror.QingParser;
 import me.ezerror.bytecode.instructions.Instruction;
-import org.antlr.v4.runtime.CharStreams;
-import org.antlr.v4.runtime.CodePointCharStream;
-import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.*;
 
+import java.io.IOException;
 import java.util.Queue;
 
 /**
@@ -16,12 +15,12 @@ public class SyntaxTreeTraverser {
 
   /**
    * 获取指令集
-   * @param code
+   * @param fileAbsolutePath
    * @return
    */
-  public Queue<Instruction> getInstructions(String code) {
-    CodePointCharStream codePointCharStream = CharStreams.fromString(code);
-    QingLexer qingLexer = new QingLexer(codePointCharStream);
+  public Queue<Instruction> getInstructions(String fileAbsolutePath) throws IOException {
+    CharStream charStream = CharStreams.fromFileName(fileAbsolutePath);
+    QingLexer qingLexer = new QingLexer(charStream);
     CommonTokenStream tokenStream = new CommonTokenStream(qingLexer);
     QingParser qingParser = new QingParser(tokenStream);
     QingTreeWalkListener qingTreeWalkListener = new QingTreeWalkListener();

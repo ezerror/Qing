@@ -1,0 +1,4 @@
+var name="qing"  
+print name 
+var year = 2023
+print year 

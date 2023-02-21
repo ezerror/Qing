@@ -3,7 +3,9 @@ package me.ezerror;
 import me.ezerror.bytecode.BytecodeGenerator;
 import me.ezerror.bytecode.instructions.Instruction;
 import me.ezerror.parsing.SyntaxTreeTraverser;
+import org.apache.commons.lang3.StringUtils;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -24,18 +26,18 @@ public class QingCompiler {
   }
 
   public void compile(String[] args) throws Exception {
-    String code = 
-      "var name=\"Qing\" " +
-        "var year = 2023 " +
-        "print name " +
-        "print year  ";
-    final Queue<Instruction> instructions = new SyntaxTreeTraverser().getInstructions(code);
-    final byte[] byteCode = new BytecodeGenerator().generateBytecode(instructions, "first");
-    writeBytecodeToClassFile("first.class", byteCode);
+    File qingFile = new File(args[0]);
+    String fileName = qingFile.getName();
+    String fileAbsolutePath = qingFile.getAbsolutePath();
+    String className = StringUtils.remove(fileName, ".qing");
+    final Queue<Instruction> instructions = new SyntaxTreeTraverser().getInstructions(fileAbsolutePath);
+    final byte[] byteCode = new BytecodeGenerator().generateBytecode(instructions, className);
+    writeBytecodeToClassFile(fileAbsolutePath, byteCode);
   }
 
   private static void writeBytecodeToClassFile(String fileName, byte[] byteCode) throws IOException {
-    OutputStream os = Files.newOutputStream(Paths.get(fileName));
+    String classFile = StringUtils.replace(fileName, ".qing", ".class");
+    OutputStream os = Files.newOutputStream(Paths.get(classFile));
     os.write(byteCode);
     os.close();
   }
