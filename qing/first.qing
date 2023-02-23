@@ -1,4 +1,6 @@
-var name="qing"  
-print name 
-var year = 2023
-print year 
+type Dog{
+	var name = "小白"
+	print name
+	var age = 3
+	print age
+}

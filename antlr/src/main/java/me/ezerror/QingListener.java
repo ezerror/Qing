@@ -18,6 +18,26 @@ public interface QingListener extends ParseTreeListener {
 	 */
 	void exitCompilationUnit(QingParser.CompilationUnitContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link QingParser#classDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterClassDeclaration(QingParser.ClassDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QingParser#classDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitClassDeclaration(QingParser.ClassDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link QingParser#classBody}.
+	 * @param ctx the parse tree
+	 */
+	void enterClassBody(QingParser.ClassBodyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QingParser#classBody}.
+	 * @param ctx the parse tree
+	 */
+	void exitClassBody(QingParser.ClassBodyContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link QingParser#variable}.
 	 * @param ctx the parse tree
 	 */
@@ -47,4 +67,14 @@ public interface QingListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitValue(QingParser.ValueContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link QingParser#className}.
+	 * @param ctx the parse tree
+	 */
+	void enterClassName(QingParser.ClassNameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QingParser#className}.
+	 * @param ctx the parse tree
+	 */
+	void exitClassName(QingParser.ClassNameContext ctx);
 }
