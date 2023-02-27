@@ -3,6 +3,7 @@ package me.ezerror.parsing;
 import me.ezerror.QingLexer;
 import me.ezerror.QingParser;
 import me.ezerror.declaration.ClassDeclaration;
+import me.ezerror.visitor.ClassVisitor;
 import org.antlr.v4.runtime.*;
 
 import java.io.IOException;
@@ -23,12 +24,10 @@ public class SyntaxTreeTraverser {
     QingLexer qingLexer = new QingLexer(charStream);
     CommonTokenStream tokenStream = new CommonTokenStream(qingLexer);
     QingParser qingParser = new QingParser(tokenStream);
-    QingTreeWalkListener qingTreeWalkListener = new QingTreeWalkListener();
     QingTreeWalkErrorListener qingTreeWalkErrorListener = new QingTreeWalkErrorListener();
-    qingParser.addParseListener(qingTreeWalkListener);
     qingParser.addErrorListener(qingTreeWalkErrorListener);
-    qingParser.compilationUnit();
-    return qingTreeWalkListener.getClassDeclaration();
+    ClassVisitor classVisitor = new ClassVisitor();
+    return qingParser.compilationUnit().classDeclaration().accept(classVisitor);
   }
   
 }
