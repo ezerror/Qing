@@ -2,24 +2,26 @@ package me.ezerror.parsing;
 
 import me.ezerror.QingLexer;
 import me.ezerror.QingParser;
-import me.ezerror.declaration.ClassDeclaration;
-import me.ezerror.visitor.ClassVisitor;
-import org.antlr.v4.runtime.*;
+import me.ezerror.domain.ClassDeclaration;
+import me.ezerror.parsing.visitor.ClassVisitor;
+import org.antlr.v4.runtime.CharStream;
+import org.antlr.v4.runtime.CharStreams;
+import org.antlr.v4.runtime.CommonTokenStream;
 
 import java.io.IOException;
 
 /**
- * 语法树遍历器
+ * 解析器
  */
-public class SyntaxTreeTraverser {
-
+public class Parser {
+  
   /**
    * 获取类定义
    *
    * @param fileAbsolutePath
    * @return
    */
-  public ClassDeclaration getClassDeclaration(String fileAbsolutePath) throws IOException {
+  public ClassDeclaration parse(String fileAbsolutePath) throws IOException {
     CharStream charStream = CharStreams.fromFileName(fileAbsolutePath);
     QingLexer qingLexer = new QingLexer(charStream);
     CommonTokenStream tokenStream = new CommonTokenStream(qingLexer);
