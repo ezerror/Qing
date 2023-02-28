@@ -29,23 +29,101 @@ public interface QingVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitClassBody(QingParser.ClassBodyContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link QingParser#variable}.
+	 * Visit a parse tree produced by {@link QingParser#functionName}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitVariable(QingParser.VariableContext ctx);
+	T visitFunctionName(QingParser.FunctionNameContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link QingParser#print}.
+	 * Visit a parse tree produced by {@link QingParser#parameterName}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitPrint(QingParser.PrintContext ctx);
+	T visitParameterName(QingParser.ParameterNameContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link QingParser#function}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunction(QingParser.FunctionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link QingParser#functionDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctionDeclaration(QingParser.FunctionDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link QingParser#parametersList}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitParametersList(QingParser.ParametersListContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link QingParser#parameter}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitParameter(QingParser.ParameterContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link QingParser#functionReturn}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctionReturn(QingParser.FunctionReturnContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link QingParser#functionStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctionStatement(QingParser.FunctionStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link QingParser#variableDeclarationStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVariableDeclarationStatement(QingParser.VariableDeclarationStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link QingParser#printStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPrintStatement(QingParser.PrintStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link QingParser#name}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitName(QingParser.NameContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link QingParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpression(QingParser.ExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link QingParser#varReference}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVarReference(QingParser.VarReferenceContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link QingParser#value}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitValue(QingParser.ValueContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link QingParser#type}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitType(QingParser.TypeContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link QingParser#primitiveType}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPrimitiveType(QingParser.PrimitiveTypeContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link QingParser#className}.
 	 * @param ctx the parse tree

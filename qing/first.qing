@@ -1,6 +1,8 @@
-type Dog{
-	var name = "小白"
-	print name
-	var age = 3
-	print age
+type Dog {
+    fn main (args:string[]) -> void {
+	    var name = "小白";
+	    print name;
+	    var age = 3;
+	    print age;
+    }
 }
