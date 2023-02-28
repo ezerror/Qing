@@ -38,25 +38,135 @@ public interface QingListener extends ParseTreeListener {
 	 */
 	void exitClassBody(QingParser.ClassBodyContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link QingParser#variable}.
+	 * Enter a parse tree produced by {@link QingParser#functionName}.
 	 * @param ctx the parse tree
 	 */
-	void enterVariable(QingParser.VariableContext ctx);
+	void enterFunctionName(QingParser.FunctionNameContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link QingParser#variable}.
+	 * Exit a parse tree produced by {@link QingParser#functionName}.
 	 * @param ctx the parse tree
 	 */
-	void exitVariable(QingParser.VariableContext ctx);
+	void exitFunctionName(QingParser.FunctionNameContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link QingParser#print}.
+	 * Enter a parse tree produced by {@link QingParser#parameterName}.
 	 * @param ctx the parse tree
 	 */
-	void enterPrint(QingParser.PrintContext ctx);
+	void enterParameterName(QingParser.ParameterNameContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link QingParser#print}.
+	 * Exit a parse tree produced by {@link QingParser#parameterName}.
 	 * @param ctx the parse tree
 	 */
-	void exitPrint(QingParser.PrintContext ctx);
+	void exitParameterName(QingParser.ParameterNameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link QingParser#function}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunction(QingParser.FunctionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QingParser#function}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunction(QingParser.FunctionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link QingParser#functionDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctionDeclaration(QingParser.FunctionDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QingParser#functionDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctionDeclaration(QingParser.FunctionDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link QingParser#parametersList}.
+	 * @param ctx the parse tree
+	 */
+	void enterParametersList(QingParser.ParametersListContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QingParser#parametersList}.
+	 * @param ctx the parse tree
+	 */
+	void exitParametersList(QingParser.ParametersListContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link QingParser#parameter}.
+	 * @param ctx the parse tree
+	 */
+	void enterParameter(QingParser.ParameterContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QingParser#parameter}.
+	 * @param ctx the parse tree
+	 */
+	void exitParameter(QingParser.ParameterContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link QingParser#functionReturn}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctionReturn(QingParser.FunctionReturnContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QingParser#functionReturn}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctionReturn(QingParser.FunctionReturnContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link QingParser#functionStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctionStatement(QingParser.FunctionStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QingParser#functionStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctionStatement(QingParser.FunctionStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link QingParser#variableDeclarationStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariableDeclarationStatement(QingParser.VariableDeclarationStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QingParser#variableDeclarationStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariableDeclarationStatement(QingParser.VariableDeclarationStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link QingParser#printStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterPrintStatement(QingParser.PrintStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QingParser#printStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitPrintStatement(QingParser.PrintStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link QingParser#name}.
+	 * @param ctx the parse tree
+	 */
+	void enterName(QingParser.NameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QingParser#name}.
+	 * @param ctx the parse tree
+	 */
+	void exitName(QingParser.NameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link QingParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpression(QingParser.ExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QingParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpression(QingParser.ExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link QingParser#varReference}.
+	 * @param ctx the parse tree
+	 */
+	void enterVarReference(QingParser.VarReferenceContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QingParser#varReference}.
+	 * @param ctx the parse tree
+	 */
+	void exitVarReference(QingParser.VarReferenceContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link QingParser#value}.
 	 * @param ctx the parse tree
@@ -67,6 +177,26 @@ public interface QingListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitValue(QingParser.ValueContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link QingParser#type}.
+	 * @param ctx the parse tree
+	 */
+	void enterType(QingParser.TypeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QingParser#type}.
+	 * @param ctx the parse tree
+	 */
+	void exitType(QingParser.TypeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link QingParser#primitiveType}.
+	 * @param ctx the parse tree
+	 */
+	void enterPrimitiveType(QingParser.PrimitiveTypeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QingParser#primitiveType}.
+	 * @param ctx the parse tree
+	 */
+	void exitPrimitiveType(QingParser.PrimitiveTypeContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link QingParser#className}.
 	 * @param ctx the parse tree
