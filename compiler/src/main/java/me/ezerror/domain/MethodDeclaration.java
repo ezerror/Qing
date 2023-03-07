@@ -1,6 +1,9 @@
 package me.ezerror.domain;
 
 import lombok.Data;
+import me.ezerror.domain.type.Type;
+
+import java.util.List;
 
 /**
  * 函数定义
@@ -12,5 +15,8 @@ import lombok.Data;
 @Data
 public class MethodDeclaration {
   private String name;
+  private List<Parameter> parameters;
+  private Type returnType;
+  
   
 }

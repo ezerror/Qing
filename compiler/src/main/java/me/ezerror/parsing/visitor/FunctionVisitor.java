@@ -3,6 +3,8 @@ package me.ezerror.parsing.visitor;
 import me.ezerror.QingBaseVisitor;
 import me.ezerror.QingParser;
 import me.ezerror.domain.MethodDeclaration;
+import me.ezerror.domain.Parameter;
+import me.ezerror.util.TypeResolver;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -20,6 +22,10 @@ public class FunctionVisitor extends QingBaseVisitor<MethodDeclaration> {
     QingParser.FunctionDeclarationContext functionDeclarationContext = ctx.functionDeclaration();
     String functionName = functionDeclarationContext.functionName().getText();
     methodDeclaration.setName(functionName);
+    QingParser.ParametersListContext parametersListContext = functionDeclarationContext.parametersList();
+    List<Parameter> parameterList = parametersListContext.accept(new ParametersListVisitor());
+    methodDeclaration.setParameters(parameterList);
+    methodDeclaration.setReturnType(TypeResolver.resolve(functionDeclarationContext.functionReturn().type()));
     // statement
     List<QingParser.FunctionStatementContext> functionStatementContexts = ctx.functionStatement();
     List<Object> collect = functionStatementContexts.stream().map(statement -> statement.accept(new StatementVisitor())).collect(Collectors.toList());
