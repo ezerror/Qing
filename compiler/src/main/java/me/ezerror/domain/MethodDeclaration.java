@@ -2,8 +2,12 @@ package me.ezerror.domain;
 
 import lombok.Data;
 import me.ezerror.domain.type.Type;
+import org.objectweb.asm.ClassWriter;
+import org.objectweb.asm.MethodVisitor;
+import org.objectweb.asm.Opcodes;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 函数定义
@@ -13,10 +17,21 @@ import java.util.List;
  * @version:
  */
 @Data
-public class MethodDeclaration {
+public class MethodDeclaration implements DescriptorProvider{
   private String name;
   private List<Parameter> parameters;
   private Type returnType;
   
-  
+  // 目前都是 public static 
+  private int access = Opcodes.ACC_PUBLIC + Opcodes.ACC_STATIC;
+
+  @Override
+  public String getDescriptor() {
+    String parametersDescriptor = parameters.stream()
+      .map(parameter -> parameter.getType().getDescriptor())
+      .collect(Collectors.joining("", "(", ")"));
+    String returnDescriptor = returnType.getDescriptor();
+    return parametersDescriptor + returnDescriptor;
+  }
+ 
 }
