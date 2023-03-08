@@ -4,6 +4,7 @@ import me.ezerror.QingBaseVisitor;
 import me.ezerror.QingParser;
 import me.ezerror.domain.MethodDeclaration;
 import me.ezerror.domain.Parameter;
+import me.ezerror.domain.inter.Statement;
 import me.ezerror.util.TypeResolver;
 
 import java.util.List;
@@ -28,7 +29,8 @@ public class FunctionVisitor extends QingBaseVisitor<MethodDeclaration> {
     methodDeclaration.setReturnType(TypeResolver.resolve(functionDeclarationContext.functionReturn().type()));
     // statement
     List<QingParser.FunctionStatementContext> functionStatementContexts = ctx.functionStatement();
-    List<Object> collect = functionStatementContexts.stream().map(statement -> statement.accept(new StatementVisitor())).collect(Collectors.toList());
+    List<Statement> statementList = functionStatementContexts.stream().map(statement -> statement.accept(new StatementVisitor())).collect(Collectors.toList());
+    methodDeclaration.setStatements(statementList);
     return methodDeclaration;
   }
 }

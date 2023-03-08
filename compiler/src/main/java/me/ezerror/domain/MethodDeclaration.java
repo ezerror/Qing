@@ -1,9 +1,9 @@
 package me.ezerror.domain;
 
 import lombok.Data;
+import me.ezerror.domain.inter.DescriptorProvider;
+import me.ezerror.domain.inter.Statement;
 import me.ezerror.domain.type.Type;
-import org.objectweb.asm.ClassWriter;
-import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 
 import java.util.List;
@@ -17,10 +17,11 @@ import java.util.stream.Collectors;
  * @version:
  */
 @Data
-public class MethodDeclaration implements DescriptorProvider{
+public class MethodDeclaration implements DescriptorProvider {
   private String name;
   private List<Parameter> parameters;
   private Type returnType;
+  private List<Statement> statements;
   
   // 目前都是 public static 
   private int access = Opcodes.ACC_PUBLIC + Opcodes.ACC_STATIC;

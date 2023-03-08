@@ -25,6 +25,8 @@ public class MethodGenerator extends AbstractByteGenerator {
   public void generate(MethodDeclaration method) {
     MethodVisitor mv = classWriter.visitMethod(method.getAccess(), method.getName(), method.getDescriptor(), null, null);
     mv.visitCode();
+    StatementGenerator statementScopeGenrator = new StatementGenerator(mv);
+    //statementScopeGenrator.generate(method)
     mv.visitMaxs(-1,-1);
     mv.visitEnd();
   }

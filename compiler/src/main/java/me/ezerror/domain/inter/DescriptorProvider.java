@@ -1,4 +1,4 @@
-package me.ezerror.domain;
+package me.ezerror.domain.inter;
 
 /**
  * Descriptor Provider
