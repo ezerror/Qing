@@ -10,12 +10,12 @@ classBody :  ( function )* ;
 
 functionName : ID;
 parameterName : ID;
-function: functionDeclaration '{' (functionStatement)* '}' ;
+function: functionDeclaration '{' (functionStatement SEMICOLON)* '}' ;
 functionDeclaration: FUCTION_IDENTIFIER functionName '(' parametersList? ')'  functionReturn;
 parametersList: parameter (',' parameter)*;
 parameter: parameterName COLON type;
 functionReturn: (POINT type)?;
-functionStatement : (variableDeclarationStatement | printStatement) SEMICOLON;
+functionStatement : variableDeclarationStatement | printStatement;
 
 
 
@@ -26,8 +26,10 @@ printStatement : PRINT expression ;
 
 
 name :ID;
-expression : varReference | value ;
-varReference : ID ;
+expression : variableReference #VarReference
+           | value        #ValueExpr
+           ;
+variableReference : ID ;
 
 
 
