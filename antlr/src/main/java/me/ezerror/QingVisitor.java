@@ -95,17 +95,25 @@ public interface QingVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitName(QingParser.NameContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link QingParser#expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitExpression(QingParser.ExpressionContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link QingParser#varReference}.
+	 * Visit a parse tree produced by the {@code VarReference}
+	 * labeled alternative in {@link QingParser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitVarReference(QingParser.VarReferenceContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ValueExpr}
+	 * labeled alternative in {@link QingParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitValueExpr(QingParser.ValueExprContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link QingParser#variableReference}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVariableReference(QingParser.VariableReferenceContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link QingParser#value}.
 	 * @param ctx the parse tree

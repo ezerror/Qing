@@ -148,25 +148,39 @@ public interface QingListener extends ParseTreeListener {
 	 */
 	void exitName(QingParser.NameContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link QingParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterExpression(QingParser.ExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link QingParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitExpression(QingParser.ExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link QingParser#varReference}.
+	 * Enter a parse tree produced by the {@code VarReference}
+	 * labeled alternative in {@link QingParser#expression}.
 	 * @param ctx the parse tree
 	 */
 	void enterVarReference(QingParser.VarReferenceContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link QingParser#varReference}.
+	 * Exit a parse tree produced by the {@code VarReference}
+	 * labeled alternative in {@link QingParser#expression}.
 	 * @param ctx the parse tree
 	 */
 	void exitVarReference(QingParser.VarReferenceContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ValueExpr}
+	 * labeled alternative in {@link QingParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterValueExpr(QingParser.ValueExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ValueExpr}
+	 * labeled alternative in {@link QingParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitValueExpr(QingParser.ValueExprContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link QingParser#variableReference}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariableReference(QingParser.VariableReferenceContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QingParser#variableReference}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariableReference(QingParser.VariableReferenceContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link QingParser#value}.
 	 * @param ctx the parse tree
