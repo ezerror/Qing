@@ -29,6 +29,7 @@ public class MethodGenerator extends AbstractByteGenerator {
     method.getStatements().stream().forEach(stmt ->
         statementScopeGenerator.generate(stmt)
     );
+    mv.visitInsn(RETURN);
     mv.visitMaxs(-1,-1);
     mv.visitEnd();
   }
