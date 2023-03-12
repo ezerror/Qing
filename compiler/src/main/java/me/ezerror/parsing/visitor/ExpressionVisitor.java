@@ -9,6 +9,7 @@ import me.ezerror.domain.inter.Expression;
 import me.ezerror.domain.type.Type;
 import me.ezerror.parsing.scope.Scope;
 import me.ezerror.util.TypeResolver;
+import me.ezerror.util.ValueResolver;
 
 /**
  * @author ：ezerror
@@ -24,8 +25,8 @@ public class ExpressionVisitor extends QingBaseVisitor<Expression> {
 
   @Override
   public Expression visitValue(QingParser.ValueContext ctx) {
-    String value = ctx.getText();
     Type type = TypeResolver.resolve(ctx);
+    String value = ValueResolver.resolve(ctx);
     return new Value(value, type);
   }
 }
