@@ -138,6 +138,16 @@ public interface QingListener extends ParseTreeListener {
 	 */
 	void exitPrintStatement(QingParser.PrintStatementContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link QingParser#returnStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterReturnStatement(QingParser.ReturnStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QingParser#returnStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitReturnStatement(QingParser.ReturnStatementContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link QingParser#name}.
 	 * @param ctx the parse tree
 	 */
