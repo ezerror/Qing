@@ -15,12 +15,14 @@ functionDeclaration: FUCTION_IDENTIFIER functionName '(' parametersList? ')'  fu
 parametersList: parameter (',' parameter)*;
 parameter: parameterName COLON type;
 functionReturn: (POINT type)?;
-functionStatement : variableDeclarationStatement | printStatement;
+functionStatement : variableDeclarationStatement | printStatement |returnStatement;
+
 
 
 
 variableDeclarationStatement : (type | VAR_IDENTIFIER) name EQUALS expression;
 printStatement : PRINT expression ;
+returnStatement: RETURN expression;
 
 
 
@@ -54,7 +56,7 @@ CLASS_IDENTIFIER : 'type';
 FUCTION_IDENTIFIER : 'fn';
 VAR_IDENTIFIER : 'var' ;
 
-
+RETURN : 'return';
 PRINT : 'print' ;
 EQUALS : '=' ;
 NUMBER : [0-9]+ ; // 数字

@@ -89,6 +89,12 @@ public interface QingVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitPrintStatement(QingParser.PrintStatementContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link QingParser#returnStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitReturnStatement(QingParser.ReturnStatementContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link QingParser#name}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

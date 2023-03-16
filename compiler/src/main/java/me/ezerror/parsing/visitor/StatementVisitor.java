@@ -6,6 +6,7 @@ import me.ezerror.domain.LocalVariable;
 import me.ezerror.domain.inter.Expression;
 import me.ezerror.domain.inter.Statement;
 import me.ezerror.domain.statement.PrintStatement;
+import me.ezerror.domain.statement.ReturnStatement;
 import me.ezerror.domain.statement.VariableDeclarationStatement;
 import me.ezerror.parsing.scope.Scope;
 
@@ -30,5 +31,12 @@ public class StatementVisitor extends QingBaseVisitor<Statement> {
     // 添加变量加入scope
     Scope.addLocalVariable(new LocalVariable(varName, expression.getType()));
     return new VariableDeclarationStatement(varName,expression);
+  }
+
+  @Override
+  public Statement visitReturnStatement(QingParser.ReturnStatementContext ctx) {
+    ReturnStatement statement = new ReturnStatement();
+    statement.setExpression(ctx.expression().accept(new ExpressionVisitor()));
+    return statement;
   }
 }
