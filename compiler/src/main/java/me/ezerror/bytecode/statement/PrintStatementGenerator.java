@@ -1,14 +1,11 @@
 package me.ezerror.bytecode.statement;
 
-import me.ezerror.QingLexer;
 import me.ezerror.bytecode.base.AbstractByteGenerator;
 import me.ezerror.domain.expression.LocalVariableReference;
-import me.ezerror.domain.inter.Expression;
 import me.ezerror.domain.statement.PrintStatement;
 import me.ezerror.domain.type.Type;
 import me.ezerror.parsing.scope.Scope;
 import org.objectweb.asm.MethodVisitor;
-import org.objectweb.asm.Opcodes;
 
 /**
  * @author ：ezerror
